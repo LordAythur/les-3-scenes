@@ -1,151 +1,204 @@
 <?php
 /**
- * Twenty Twenty-Two functions and definitions
+ * les-3-scenes functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package WordPress
- * @subpackage Twenty_Twenty_Two
- * @since Twenty Twenty-Two 1.0
+ * @package les-3-scenes
  */
 
+if ( ! defined( '_S_VERSION' ) ) {
+	// Replace the version number of the theme on each release.
+	define( '_S_VERSION', '1.0.0' );
+}
 
-if ( ! function_exists( 'twentytwentytwo_support' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function les_3_scenes_setup() {
+	/*
+		* Make theme available for translation.
+		* Translations can be filed in the /languages/ directory.
+		* If you're building a theme based on les-3-scenes, use a find and replace
+		* to change 'les-3-scenes' to the name of your theme in all the template files.
+		*/
+	load_theme_textdomain( 'les-3-scenes', get_template_directory() . '/languages' );
 
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * @since Twenty Twenty-Two 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentytwo_support() {
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
 
-		// Add support for block styles.
-		add_theme_support( 'wp-block-styles' );
+	/*
+		* Let WordPress manage the document title.
+		* By adding theme support, we declare that this theme does not use a
+		* hard-coded <title> tag in the document head, and expect WordPress to
+		* provide it for us.
+		*/
+	add_theme_support( 'title-tag' );
 
-		// Enqueue editor styles.
-		add_editor_style( 'style.css' );
+	/*
+		* Enable support for Post Thumbnails on posts and pages.
+		*
+		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		*/
+	add_theme_support( 'post-thumbnails' );
 
-	}
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus(
+		array(
+			'menu-1' => esc_html__( 'Primary', 'les-3-scenes' ),
+		)
+	);
 
-endif;
+	/*
+		* Switch default core markup for search form, comment form, and comments
+		* to output valid HTML5.
+		*/
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			'style',
+			'script',
+		)
+	);
 
-add_action( 'after_setup_theme', 'twentytwentytwo_support' );
+	// Set up the WordPress core custom background feature.
+	add_theme_support(
+		'custom-background',
+		apply_filters(
+			'les_3_scenes_custom_background_args',
+			array(
+				'default-color' => 'ffffff',
+				'default-image' => '',
+			)
+		)
+	);
 
-if ( ! function_exists( 'twentytwentytwo_styles' ) ) :
-
-	/**
-	 * Enqueue styles.
-	 *
-	 * @since Twenty Twenty-Two 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentytwo_styles() {
-		// Register theme stylesheet.
-		$theme_version = wp_get_theme()->get( 'Version' );
-
-		$version_string = is_string( $theme_version ) ? $theme_version : false;
-		wp_register_style(
-			'twentytwentytwo-style',
-			get_template_directory_uri() . '/style.css',
-			array(),
-			$version_string
-		);
-
-		// Add styles inline.
-		wp_add_inline_style( 'twentytwentytwo-style', twentytwentytwo_get_font_face_styles() );
-
-		// Enqueue theme stylesheet.
-		wp_enqueue_style( 'twentytwentytwo-style' );
-
-	}
-
-endif;
-
-add_action( 'wp_enqueue_scripts', 'twentytwentytwo_styles' );
-
-if ( ! function_exists( 'twentytwentytwo_editor_styles' ) ) :
-
-	/**
-	 * Enqueue editor styles.
-	 *
-	 * @since Twenty Twenty-Two 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentytwo_editor_styles() {
-
-		// Add styles inline.
-		wp_add_inline_style( 'wp-block-library', twentytwentytwo_get_font_face_styles() );
-
-	}
-
-endif;
-
-add_action( 'admin_init', 'twentytwentytwo_editor_styles' );
-
-
-if ( ! function_exists( 'twentytwentytwo_get_font_face_styles' ) ) :
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/**
-	 * Get font face styles.
-	 * Called by functions twentytwentytwo_styles() and twentytwentytwo_editor_styles() above.
+	 * Add support for core custom logo.
 	 *
-	 * @since Twenty Twenty-Two 1.0
-	 *
-	 * @return string
+	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
-	function twentytwentytwo_get_font_face_styles() {
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
+}
+add_action( 'after_setup_theme', 'les_3_scenes_setup' );
 
-		return "
-		@font-face{
-			font-family: 'Source Serif Pro';
-			font-weight: 200 900;
-			font-style: normal;
-			font-stretch: normal;
-			font-display: swap;
-			src: url('" . get_theme_file_uri( 'assets/fonts/SourceSerif4Variable-Roman.ttf.woff2' ) . "') format('woff2');
-		}
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function les_3_scenes_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'les_3_scenes_content_width', 640 );
+}
+add_action( 'after_setup_theme', 'les_3_scenes_content_width', 0 );
 
-		@font-face{
-			font-family: 'Source Serif Pro';
-			font-weight: 200 900;
-			font-style: italic;
-			font-stretch: normal;
-			font-display: swap;
-			src: url('" . get_theme_file_uri( 'assets/fonts/SourceSerif4Variable-Italic.ttf.woff2' ) . "') format('woff2');
-		}
-		";
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function les_3_scenes_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'les-3-scenes' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'les-3-scenes' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'les_3_scenes_widgets_init' );
 
+/**
+ * Enqueue scripts and styles.
+ */
+function les_3_scenes_scripts() {
+	wp_enqueue_style( 'les-3-scenes-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'les-3-scenes-style', 'rtl', 'replace' );
+
+	wp_enqueue_script( 'les-3-scenes-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
 	}
+}
+add_action( 'wp_enqueue_scripts', 'les_3_scenes_scripts' );
 
-endif;
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/custom-header.php';
 
-if ( ! function_exists( 'twentytwentytwo_preload_webfonts' ) ) :
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
 
-	/**
-	 * Preloads the main web font to improve performance.
-	 *
-	 * Only the main web font (font-style: normal) is preloaded here since that font is always relevant (it is used
-	 * on every heading, for example). The other font is only needed if there is any applicable content in italic style,
-	 * and therefore preloading it would in most cases regress performance when that font would otherwise not be loaded
-	 * at all.
-	 *
-	 * @since Twenty Twenty-Two 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentytwo_preload_webfonts() {
-		?>
-		<link rel="preload" href="<?php echo esc_url( get_theme_file_uri( 'assets/fonts/SourceSerif4Variable-Roman.ttf.woff2' ) ); ?>" as="font" type="font/woff2" crossorigin>
-		<?php
-	}
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/inc/template-functions.php';
 
-endif;
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
 
-add_action( 'wp_head', 'twentytwentytwo_preload_webfonts' );
+/**
+ * Load Jetpack compatibility file.
+ */
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require get_template_directory() . '/inc/jetpack.php';
+}
 
-// Add block patterns
-require get_template_directory() . '/inc/block-patterns.php';
+/**
+ * Enqueue scripts and styles.
+ */
+function scenes_scripts() {
+    wp_enqueue_style( 'scenes-style', get_stylesheet_uri(), array(), _S_VERSION );
+    wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css' );
+    wp_enqueue_style( 'app-css', get_template_directory_uri() . '/app.css' );
+    wp_style_add_data( 'scenes-style', 'rtl', 'replace' );
+
+    wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js%27');
+    wp_enqueue_script( 'app-js', get_template_directory_uri() . '/app.js');
+
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'scenes_scripts' );
+
+add_action('admin_menu', 'remove_links_tab_menu_pages');
+function remove_links_tab_menu_pages()
+{
+    // remove_menu_page('edit-comments.php');
+	// remove_menu_page('plugins.php');
+	// remove_menu_page('edit-comments.php');
+}
+

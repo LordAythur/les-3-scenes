@@ -1,0 +1,26 @@
+/** Général **/
+:root {
+    --bordeaux: #AA1C39;
+    --noir: #24292E;
+    --gris: #E5E5E5;
+    --baskerville: 'Libre Baskerville', serif;
+}
+
+* {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+html, body {background-color:var(--gris);margin: 0;border: 0;padding: 0;}
+
+a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin-right:20px;font-weight:bold;padding:15px 25px;background-color:var(--bordeaux);}
+
+
+/** Header **/
+.site-header .container-header {height: 120px;}
+.site-header .container-header .header-logo {justify-content:space-between;}
+.site-header .container-naviguation {background-color:var(--bordeaux);height:40px;}
+.site-header .container-naviguation a{text-transform: uppercase;color:white;margin-right:30px;font-weight:bold;}
+.site-header .container-naviguation .current-menu-item a{color: var(--noir);}
+
+/** Accueil **/
+
+#page-accueil #entry .banner {background-color: var(--bordeaux);height:calc(90vh - 160px);display: flex;justify-content: center;align-items: center;}
+#page-accueil #entry .banner h1 {font-family: var(--baskerville);text-align: center;color:white;font-size: 48px;}
