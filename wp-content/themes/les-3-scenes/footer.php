@@ -12,19 +12,26 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'les-3-scenes' ) ); ?>">
+		<div class="container-fluid">
+			<div class="row justify-content-center align-items-center">
+				<h3>La Compagnie des 3 Scènes</h3>
+				<p>5 rue Léon Couturat, 10000 Troyes</p>
+				<hr>
+			</div>
+			<div class="row justify-content-center align-items-center">
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'les-3-scenes' ), 'WordPress' );
+					wp_nav_menu(
+						array(
+							'menu' => 'footer',
+							'theme_location' => 'menu-2',
+							'menu_id'        => 'footer-menu',
+							'add_li_class'  => 'nav-item',
+							'add_a_class'   => 'nav-link'
+						)
+					);
 				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'les-3-scenes' ), 'les-3-scenes', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
+			</div>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

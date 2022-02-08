@@ -20,6 +20,9 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 .site-header .container-naviguation a{text-transform: uppercase;color:white;margin-right:30px;font-weight:bold;}
 .site-header .container-naviguation .current-menu-item a{color: var(--noir);}
 
+/** Footer **/
+footer {background-color: var(--noir);}
+
 /** Accueil **/
 
 #page-accueil #entry .banner {background-color: var(--bordeaux);height:calc(90vh - 160px);display: flex;justify-content: center;align-items: center;}
