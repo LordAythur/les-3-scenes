@@ -21,6 +21,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+<span id="scroller">
+	<svg id="e4NPzXSLb9c1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path d="M289.042307,265.9807c-5.338755,0-9.666667-4.327912-9.666667-9.666667v-38.666666c0-5.338755,4.327912-9.666667,9.666667-9.666667h38.666666c5.338755,0,9.666667,4.327912,9.666667,9.666667v38.666666c0,5.338755-4.327912,9.666667-9.666667,9.666667h-38.666666Z" transform="translate(-278.37564-206.9807)" fill="#aa1c39" stroke="#e5e5e5" stroke-width="2"/><g transform="translate(1.555098-2.886551)"><line x1="7.524627" y1="-7.524627" x2="-7.524627" y2="7.524626" transform="translate(20.920276 32.88655)" fill="none" stroke="#e5e5e5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="7.524627" y1="-7.524627" x2="-7.524627" y2="7.524626" transform="matrix(0-1 1 0 35.969528 32.88655)" fill="none" stroke="#e5e5e5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></span>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">

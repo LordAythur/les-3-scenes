@@ -13,12 +13,12 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="container-fluid">
-			<div class="row justify-content-center align-items-center">
+			<div class="row justify-content-center align-items-center adresse">
 				<h3>La Compagnie des 3 Scènes</h3>
 				<p>5 rue Léon Couturat, 10000 Troyes</p>
-				<hr>
+				<span class="border"></span>
 			</div>
-			<div class="row justify-content-center align-items-center">
+			<div class="row justify-content-center align-items-center menu-footer">
 				<?php
 					wp_nav_menu(
 						array(
@@ -30,6 +30,12 @@
 						)
 					);
 				?>
+			</div>
+			<div class="row justify-content-center align-items-center copyright">
+				<p>© Copyright 2022 Compagnie les 3 scènes tous droits réservés.</p>
+			</div>
+			<div class="rs">
+				<a href="/"><img src="http://localhost/les-3-scenes/wp-content/uploads/2022/02/pngaaa.com-678845.png" alt="logo facebook"></a>
 			</div>
 		</div>
 	</footer><!-- #colophon -->
