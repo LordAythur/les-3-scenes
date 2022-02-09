@@ -12,7 +12,7 @@
          <section id="entry">
              <div class="container-fluid">
                  <div class="row">
-                     <div class="col-xl-12 banner">
+                     <div class="col-xl-12 banner" style="background-image: url('<?php echo get_field('image_banner')['url'] ?>');">
                          <h1>La Compagnie<br>Les 3 Scenes</h1>
                      </div>
                  </div>
@@ -21,34 +21,40 @@
          <section id="compagnie">
             <div class="container-fluid">
                  <div class="row">
-                     <div class="col-xl-8 offset-xl-2 titre">
+                     <div class="col-xl-10 offset-xl-1 titre">
                          <h2>La Compagnie</h2>
                          <span class="background-number">01</span>
                      </div>
                      <div class="content-compagnie">
-                        <div class="col-xl-5 offset-xl-2 texte">
+                        <div class="col-xl-6 offset-xl-1 texte">
                             <p><?php echo get_field('texte_compagnie') ?></p>
                         </div>
-                        <div class="col-xl-5 offset-xl-5 image">
-                            <img src="" alt="">
+                        <div class="col-xl-6 offset-xl-5 image" style="background-image: url('<?php echo get_field('image_compagnie')['url'] ?>');">
                         </div>
                      </div>
                  </div>
              </div>
          </section>
          <span class="border"></span>
-         <section id="compagnie">
+         <section id="histoire">
             <div class="container-fluid">
                  <div class="row">
-                     <div class="col-xl-8 offset-xl-2 titre">
+                     <div class="col-xl-10 offset-xl-1 titre">
                          <h2>L'Histoire</h2>
                          <span class="background-number">02</span>
                      </div>
+                     <div class="col-xl-8 offset-xl-2 soustitre">
+                        <p>Voici l'histoire de la compagnie Les 3 Scènes :</p>
+                     </div>
                      <div class="content-compagnie">
-                        <div class="col-xl-5 offset-xl-2 texte">
+                        <div class="col-xl-4 offset-xl-3 texte gauche">
+                            <div class="titre">
+                                <h3>Nos Comédiens</h3>
+                                <span class="little-background-number">1</span>
+                            </div>
                             <p><?php echo get_field('nos_comediens')['texte_comediens'] ?></p>
                         </div>
-                        <div class="col-xl-5 offset-xl-5 image" style="background-image: url('<?php echo get_field('nos_comediens')['image_comediens']['url'] ?>');">
+                        <div class="col-xl-4 offset-xl-5 image" style="background-image: url('<?php echo get_field('nos_comediens')['image_comediens']['url'] ?>');">
                         </div>
                      </div>
                  </div>

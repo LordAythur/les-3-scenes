@@ -12,7 +12,7 @@ html, body {background-color:var(--gris);margin: 0;border: 0;padding: 0;}
 
 a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin-right:20px;font-weight:bold;padding:15px 25px;background-color:var(--bordeaux);}
 
-#scroller {position: fixed; bottom: 100px;right: 80px;z-index: 1000;}
+#scroller {transition-duration: 0.2s; opacity: 0%;position: fixed; bottom: 100px;right: 80px;z-index: 1000;cursor: pointer;}
 #scroller svg {height: 40px;}
 
 /** Header **/
@@ -23,7 +23,7 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 .site-header .container-naviguation .current-menu-item a{color: var(--noir);}
 
 /** Footer **/
-.site-footer {background-color: var(--noir);position: relative;}
+.site-footer {background-color: var(--noir);position: relative;margin-bottom:-25px;}
 .site-footer .adresse {padding-top: 40px;}
 .site-footer .adresse {flex-direction: column;}
 .site-footer .adresse h3 {text-align: center;width: auto;color: var(--bordeaux);font-size: 20px;}
@@ -40,14 +40,31 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 
 /** Accueil **/
 
-#page-accueil .border {display: flex;margin-left: 50%;transform: translateX(-50%);border: 0px solid white!important;border-bottom: 2px solid var(--bordeaux)!important;width:220px;margin-bottom: 50px;}
+#page-accueil .border {display: flex;margin-left: 50%;transform: translateX(-50%);border: 0px solid white!important;border-bottom: 2px solid var(--bordeaux)!important;width:300px;margin-bottom: 30px;}
 
-#page-accueil #entry .banner {background-color: var(--bordeaux);height:calc(90vh - 160px);display: flex;justify-content: center;align-items: center;}
+#page-accueil #entry .banner {background-color: var(--bordeaux);height:calc(90vh - 160px);display: flex;justify-content: center;align-items: center;background-position: center;background-repeat: no-repeat;background-size:cover;}
 #page-accueil #entry .banner h1 {font-family: var(--baskerville);text-align: center;color:white;font-size: 48px;}
 
-#page-accueil #compagnie {margin-bottom: 50px;}
+#page-accueil #compagnie {margin-bottom: 80px;}
 #page-accueil #compagnie .titre {position: relative;display: flex;align-items: center;height: 180px;}
 #page-accueil #compagnie .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-accueil #compagnie .titre h2 {font-family: var(--baskerville);font-weight: bold;}
 #page-accueil #compagnie .content-compagnie .texte {border-radius: 10px;background-color: #f9f9f9;padding: 42px;position: absolute;}
 #page-accueil #compagnie .content-compagnie .image {border-radius: 10px;background-color: #dcdcdc;padding: 42px;height: 400px;margin-top: 100px;background-position: center;background-repeat: no-repeat;background-size:cover;}
+
+#page-accueil #histoire {margin-bottom: 50px;}
+#page-accueil #histoire .titre {position: relative;display: flex;align-items: center;height: 180px;}
+#page-accueil #histoire .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
+#page-accueil #histoire .titre h2 {font-family: var(--baskerville);font-weight: bold;}
+#page-accueil #histoire .soustitre p {font-family: var(--baskerville);font-weight: bold;}
+#page-accueil #histoire .content-compagnie .texte {position: relative;background-color: #f9f9f9;padding: 42px;padding-left:92px;position: absolute;box-shadow: -2px -2px 5px rgb(0,0,0,25%);border-bottom: var(--bordeaux) 3px solid;}
+#page-accueil #histoire .content-compagnie .texte.gauche .titre {align-items: center;display: flex;align-content: center;justify-content: center;height: auto;margin: 20px 0;width: 80%;}
+#page-accueil #histoire .content-compagnie .texte.gauche .titre .little-background-number {opacity: 10%;font-family: var(--baskerville);font-size: 48px;position: absolute;top: 20px;line-height: 100%;top: 50%;transform: translateY(-50%);left: -50px;}
+#page-accueil #histoire .content-compagnie .texte.gauche .titre h3 {font-family: var(--baskerville);font-size: 24px;}
+#page-accueil #histoire .content-compagnie .image {background-color: #dcdcdc;padding: 42px;height: 300px;margin-top: 100px;background-position: center;background-repeat: no-repeat;background-size:cover;}
+
+/** Galerie **/
+
+#page-galerie #albums .titre {position: relative;display: flex;align-items: center;height: 180px;}
+#page-galerie #albums .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
+#page-galerie #albums .titre h2 {font-family: var(--baskerville);font-weight: bold;}

@@ -32,7 +32,7 @@
 				?>
 			</div>
 			<div class="row justify-content-center align-items-center copyright">
-				<p>© Copyright 2022 Compagnie les 3 scènes tous droits réservés.</p>
+				<p>Copyright 2022 © Compagnie Les 3 Scènes tous droits réservés.</p>
 			</div>
 			<div class="rs">
 				<a href="/"><img src="http://localhost/les-3-scenes/wp-content/uploads/2022/02/pngaaa.com-678845.png" alt="logo facebook"></a>
