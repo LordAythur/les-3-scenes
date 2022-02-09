@@ -65,6 +65,19 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 
 /** Galerie **/
 
-#page-galerie #albums .titre {position: relative;display: flex;align-items: center;height: 180px;}
+#page-galerie .border {display: flex;margin-left: 50%;transform: translateX(-50%);border: 0px solid white!important;border-bottom: 2px solid var(--bordeaux)!important;width:300px;margin-bottom: 30px;}
+#page-galerie #albums .annee-album {font-family: var(--baskerville);font-weight: bold;}
+#page-galerie #albums .titre {position: relative;display: flex;align-items: center;height: 180px;margin-top: 20px;}
 #page-galerie #albums .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-galerie #albums .titre h2 {font-family: var(--baskerville);font-weight: bold;}
+#page-galerie #albums .albums {flex-wrap: wrap;}
+#page-galerie #albums .albums a {text-decoration: none;}
+#page-galerie #albums .albums a .album {text-align: center;display: flex; justify-content: center; align-items:center;height: 350px; width: 350px; background-color: var(--bordeaux);margin: 10px;background-repeat: no-repeat;background-size: cover;font-family: var(--baskerville);color: white;}
+
+/** Single galerie **/
+
+#single-galerie #photos .titre {position: relative;display: flex;align-items: center;height: 180px;margin-top: 20px;flex-wrap: wrap;}
+#single-galerie #photos .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
+#single-galerie #photos .titre h2 {font-family: var(--baskerville);font-weight: bold;width: 100%;}
+#single-galerie #photos .photos {flex-wrap: wrap;}
+#single-galerie #photos .photos .photo {display: flex; justify-content: center; align-items:center;height: 350px; width: 350px; background-color: var(--bordeaux);margin: 10px;background-repeat: no-repeat;background-size: cover;font-family: var(--baskerville);color: var(--noir);}
