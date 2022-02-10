@@ -22,10 +22,10 @@
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'les-3-scenes' );
 
-/** Database username */
+/** Utilisateur de la base de données MySQL. */
 define( 'DB_USER', 'root' );
 
-/** Database password */
+/** Mot de passe de la base de données MySQL. */
 define( 'DB_PASSWORD', '' );
 
 /** Database hostname */

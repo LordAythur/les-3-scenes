@@ -6,7 +6,7 @@
     --baskerville: 'Libre Baskerville', serif;
 }
 
-* {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+* {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;transition-duration: 0.3s;}
 
 html, body {background-color:var(--gris);margin: 0;border: 0;padding: 0;}
 
@@ -20,7 +20,8 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 .site-header .container-header .header-logo {justify-content:space-between;}
 .site-header .container-naviguation {background-color:var(--bordeaux);height:40px;}
 .site-header .container-naviguation a{text-transform: uppercase;color:white;margin-right:30px;font-weight:bold;}
-.site-header .container-naviguation .current-menu-item a{color: var(--noir);}
+.site-header .container-naviguation .current-menu-item a,
+.site-header .container-naviguation a:hover {color: var(--noir);}
 
 /** Footer **/
 .site-footer {background-color: var(--noir);position: relative;margin-bottom:-25px;}
@@ -49,30 +50,32 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 #page-accueil #compagnie .titre {position: relative;display: flex;align-items: center;height: 180px;}
 #page-accueil #compagnie .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-accueil #compagnie .titre h2 {font-family: var(--baskerville);font-weight: bold;}
-#page-accueil #compagnie .content-compagnie .texte {border-radius: 10px;background-color: #f9f9f9;padding: 42px;position: absolute;}
-#page-accueil #compagnie .content-compagnie .image {border-radius: 10px;background-color: #dcdcdc;padding: 42px;height: 400px;margin-top: 100px;background-position: center;background-repeat: no-repeat;background-size:cover;}
+#page-accueil #compagnie .content-compagnie .texte {background-color: #f9f9f9;padding: 42px;position: absolute;box-shadow: -2px -2px 5px rgb(0,0,0,25%);border-bottom: var(--bordeaux) 3px solid;}
+#page-accueil #compagnie .content-compagnie .image {box-shadow: -2px -2px 5px rgb(0,0,0,25%);background-color: #dcdcdc;padding: 42px;height: 400px;margin-top: 100px;background-position: center;background-repeat: no-repeat;background-size:cover;}
 
 #page-accueil #histoire {margin-bottom: 50px;}
 #page-accueil #histoire .titre {position: relative;display: flex;align-items: center;height: 180px;}
 #page-accueil #histoire .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-accueil #histoire .titre h2 {font-family: var(--baskerville);font-weight: bold;}
+#page-accueil #histoire .soustitre {margin-bottom: 50px;}
 #page-accueil #histoire .soustitre p {font-family: var(--baskerville);font-weight: bold;}
 #page-accueil #histoire .content-compagnie .texte {position: relative;background-color: #f9f9f9;padding: 42px;padding-left:92px;position: absolute;box-shadow: -2px -2px 5px rgb(0,0,0,25%);border-bottom: var(--bordeaux) 3px solid;}
-#page-accueil #histoire .content-compagnie .texte.gauche .titre {align-items: center;display: flex;align-content: center;justify-content: center;height: auto;margin: 20px 0;width: 80%;}
-#page-accueil #histoire .content-compagnie .texte.gauche .titre .little-background-number {opacity: 10%;font-family: var(--baskerville);font-size: 48px;position: absolute;top: 20px;line-height: 100%;top: 50%;transform: translateY(-50%);left: -50px;}
-#page-accueil #histoire .content-compagnie .texte.gauche .titre h3 {font-family: var(--baskerville);font-size: 24px;}
-#page-accueil #histoire .content-compagnie .image {background-color: #dcdcdc;padding: 42px;height: 300px;margin-top: 100px;background-position: center;background-repeat: no-repeat;background-size:cover;}
+#page-accueil #histoire .content-compagnie .texte .titre {align-items: center;display: flex;align-content: center;justify-content: center;height: auto;margin: 20px 0;width: 80%;}
+#page-accueil #histoire .content-compagnie .texte .titre .little-background-number {opacity: 10%;font-family: var(--baskerville);font-size: 48px;position: absolute;top: 20px;line-height: 100%;top: 50%;transform: translateY(-50%);left: -50px;}
+#page-accueil #histoire .content-compagnie .texte .titre h3 {font-family: var(--baskerville);font-size: 24px;}
+#page-accueil #histoire .content-compagnie .image {box-shadow: -2px -2px 5px rgb(0,0,0,25%);background-color: #dcdcdc;padding: 42px;height: 300px;margin-top: 200px; margin-bottom: 100px; background-position: center;background-repeat: no-repeat;background-size:cover;}
 
 /** Galerie **/
 
 #page-galerie .border {display: flex;margin-left: 50%;transform: translateX(-50%);border: 0px solid white!important;border-bottom: 2px solid var(--bordeaux)!important;width:300px;margin-bottom: 30px;}
-#page-galerie #albums .annee-album {font-family: var(--baskerville);font-weight: bold;}
+#page-galerie #albums .annee-album {font-family: var(--baskerville);font-weight: bold;margin-top: 50px;}
 #page-galerie #albums .titre {position: relative;display: flex;align-items: center;height: 180px;margin-top: 20px;}
 #page-galerie #albums .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-galerie #albums .titre h2 {font-family: var(--baskerville);font-weight: bold;}
 #page-galerie #albums .albums {flex-wrap: wrap;}
 #page-galerie #albums .albums a {text-decoration: none;}
-#page-galerie #albums .albums a .album {text-align: center;display: flex; justify-content: center; align-items:center;height: 350px; width: 350px; background-color: var(--bordeaux);margin: 10px;background-repeat: no-repeat;background-size: cover;font-family: var(--baskerville);color: white;}
+#page-galerie #albums .albums a .album {text-align: center;display: flex; justify-content: center; align-items:center;height: 350px; width: 350px; background-color: var(--bordeaux);margin: 10px;background-repeat: no-repeat;background-size: cover;font-family: var(--baskerville);color: white;background-position: left;}
+#page-galerie #albums .albums a:hover .album {font-size: 20px;background-position: right;transition-duration: 1s;}
 
 /** Single galerie **/
 

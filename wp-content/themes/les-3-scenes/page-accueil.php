@@ -47,6 +47,7 @@
                         <p>Voici l'histoire de la compagnie Les 3 Scènes :</p>
                      </div>
                      <div class="content-compagnie">
+
                         <div class="col-xl-4 offset-xl-3 texte gauche">
                             <div class="titre">
                                 <h3>Nos Comédiens</h3>
@@ -54,7 +55,37 @@
                             </div>
                             <p><?php echo get_field('nos_comediens')['texte_comediens'] ?></p>
                         </div>
-                        <div class="col-xl-4 offset-xl-5 image" style="background-image: url('<?php echo get_field('nos_comediens')['image_comediens']['url'] ?>');">
+                        <div class="col-xl-4 offset-xl-5 image comediens" style="margin-top: 100px; background-image: url('<?php echo get_field('nos_comediens')['image_comediens']['url'] ?>');">
+                        </div>
+
+                        <div class="col-xl-4 offset-xl-5 texte droit">
+                            <div class="titre">
+                                <h3>La relation</h3>
+                                <span class="little-background-number">2</span>
+                            </div>
+                            <p><?php echo get_field('la_relation')['texte_relation'] ?></p>
+                        </div>
+                        <div class="col-xl-4 offset-xl-3 image relation" style="background-image: url('<?php echo get_field('la_relation')['image_relation']['url'] ?>');">
+                        </div>
+
+                        <div class="col-xl-4 offset-xl-3 texte gauche">
+                            <div class="titre">
+                                <h3>La relation</h3>
+                                <span class="little-background-number">3</span>
+                            </div>
+                            <p><?php echo get_field('la_creation')['texte_creation'] ?></p>
+                        </div>
+                        <div class="col-xl-4 offset-xl-5 image creation" style="background-image: url('<?php echo get_field('la_creation')['image_creation']['url'] ?>');">
+                        </div>
+
+                        <div class="col-xl-4 offset-xl-5 texte droit">
+                            <div class="titre">
+                                <h3>Le théâtre</h3>
+                                <span class="little-background-number">4</span>
+                            </div>
+                            <p><?php echo get_field('le_theatre')['texte_theatre'] ?></p>
+                        </div>
+                        <div class="col-xl-4 offset-xl-3 image theatre" style="background-image: url('<?php echo get_field('le_theatre')['image_theatre']['url'] ?>');">
                         </div>
                      </div>
                  </div>
