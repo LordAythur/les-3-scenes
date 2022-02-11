@@ -182,11 +182,13 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 function scenes_scripts() {
     wp_enqueue_style( 'scenes-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css' );
+	wp_enqueue_style( 'aos', 'https://unpkg.com/aos@2.3.1/dist/aos.css' );
     wp_enqueue_style( 'app-css', get_template_directory_uri() . '/app.css' );
     wp_style_add_data( 'scenes-style', 'rtl', 'replace' );
 
-    wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js%27');
+    wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js');
     wp_enqueue_script( 'app-js', get_template_directory_uri() . '/app.js');
+	wp_enqueue_script( 'aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
@@ -201,4 +203,12 @@ function remove_links_tab_menu_pages()
 	// remove_menu_page('plugins.php');
 	// remove_menu_page('edit-comments.php');
 }
+
+/**
+ * API ACF MAP
+ */
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'AIzaSyC9mXEdOWsApFMcksxLDukV5LilnwPqbyY');
+}
+add_action('acf/init', 'my_acf_init');
 

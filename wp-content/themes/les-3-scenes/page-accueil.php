@@ -26,10 +26,10 @@
                          <span class="background-number">01</span>
                      </div>
                      <div class="content-compagnie">
-                        <div class="col-xl-6 offset-xl-1 texte">
+                        <div class="col-xl-6 offset-xl-1 texte"   data-aos="fade-right" data-aos-delay="300" data-aos-once="true">
                             <p><?php echo get_field('texte_compagnie') ?></p>
                         </div>
-                        <div class="col-xl-6 offset-xl-5 image" style="background-image: url('<?php echo get_field('image_compagnie')['url'] ?>');">
+                        <div class="col-xl-6 offset-xl-5 image" style="background-image: url('<?php echo get_field('image_compagnie')['url'] ?>');"   data-aos="fade-left" data-aos-delay="300" data-aos-once="true">
                         </div>
                      </div>
                  </div>
@@ -48,44 +48,44 @@
                      </div>
                      <div class="content-compagnie">
 
-                        <div class="col-xl-4 offset-xl-3 texte gauche">
+                        <div class="col-xl-4 offset-xl-3 texte gauche" data-aos="fade-right" data-aos-delay="300" data-aos-once="true">
                             <div class="titre">
                                 <h3>Nos Comédiens</h3>
                                 <span class="little-background-number">1</span>
                             </div>
                             <p><?php echo get_field('nos_comediens')['texte_comediens'] ?></p>
                         </div>
-                        <div class="col-xl-4 offset-xl-5 image comediens" style="margin-top: 100px; background-image: url('<?php echo get_field('nos_comediens')['image_comediens']['url'] ?>');">
+                        <div class="col-xl-4 offset-xl-5 image comediens" style="margin-top: 100px; background-image: url('<?php echo get_field('nos_comediens')['image_comediens']['url'] ?>');"  data-aos="fade-left" data-aos-delay="300" data-aos-once="true">
                         </div>
 
-                        <div class="col-xl-4 offset-xl-5 texte droit">
+                        <div class="col-xl-4 offset-xl-5 texte droit"  data-aos="fade-left" data-aos-delay="300" data-aos-once="true">
                             <div class="titre">
                                 <h3>La relation</h3>
                                 <span class="little-background-number">2</span>
                             </div>
                             <p><?php echo get_field('la_relation')['texte_relation'] ?></p>
                         </div>
-                        <div class="col-xl-4 offset-xl-3 image relation" style="background-image: url('<?php echo get_field('la_relation')['image_relation']['url'] ?>');">
+                        <div class="col-xl-4 offset-xl-3 image relation" style="background-image: url('<?php echo get_field('la_relation')['image_relation']['url'] ?>');"  data-aos="fade-right" data-aos-delay="300" data-aos-once="true">
                         </div>
 
-                        <div class="col-xl-4 offset-xl-3 texte gauche">
+                        <div class="col-xl-4 offset-xl-3 texte gauche"  data-aos="fade-right" data-aos-delay="300" data-aos-once="true">
                             <div class="titre">
                                 <h3>La relation</h3>
                                 <span class="little-background-number">3</span>
                             </div>
                             <p><?php echo get_field('la_creation')['texte_creation'] ?></p>
                         </div>
-                        <div class="col-xl-4 offset-xl-5 image creation" style="background-image: url('<?php echo get_field('la_creation')['image_creation']['url'] ?>');">
+                        <div class="col-xl-4 offset-xl-5 image creation" style="background-image: url('<?php echo get_field('la_creation')['image_creation']['url'] ?>');"  data-aos="fade-left" data-aos-delay="300" data-aos-once="true">
                         </div>
 
-                        <div class="col-xl-4 offset-xl-5 texte droit">
+                        <div class="col-xl-4 offset-xl-5 texte droit"  data-aos="fade-left" data-aos-delay="300" data-aos-once="true">
                             <div class="titre">
                                 <h3>Le théâtre</h3>
                                 <span class="little-background-number">4</span>
                             </div>
                             <p><?php echo get_field('le_theatre')['texte_theatre'] ?></p>
                         </div>
-                        <div class="col-xl-4 offset-xl-3 image theatre" style="background-image: url('<?php echo get_field('le_theatre')['image_theatre']['url'] ?>');">
+                        <div class="col-xl-4 offset-xl-3 image theatre" style="background-image: url('<?php echo get_field('le_theatre')['image_theatre']['url'] ?>');"  data-aos="fade-right" data-aos-delay="300" data-aos-once="true">
                         </div>
                      </div>
                  </div>

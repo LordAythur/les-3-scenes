@@ -1,5 +1,7 @@
 jQuery(function($) {
 
+    AOS.init();
+
     $( "#scroller" ).click(function() {
         window.scroll(0,0);
     });

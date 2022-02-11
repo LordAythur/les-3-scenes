@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-08 10:29:38+0000\n"
+"PO-Revision-Date: 2022-02-10 10:03:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +29,7 @@ msgstr "Sélectionnez une extension SEO"
 
 #: src/integrations/admin/import-integration.php:107
 msgid "The import can take a long time depending on your site's size."
-msgstr "L’importation peut prendre un certain temps en fonction de la taille de votre site."
+msgstr "L’importation peut prendre un certain temps en fonction de la taille de votre site"
 
 #: src/integrations/admin/installation-success-integration.php:101
 msgid "Installation Successful"
@@ -2946,7 +2946,7 @@ msgstr "Retire l’onglet de l’analyse de lisibilité du gestionnaire de méta
 #: admin/views/class-yoast-feature-toggles.php:82
 #: js/dist/externals-components.js:5
 msgid "Readability analysis"
-msgstr "Analyse de la lisibilité"
+msgstr "Analyse de lisibilité"
 
 #: admin/formatter/class-metabox-formatter.php:117
 #: admin/formatter/class-metabox-formatter.php:147
@@ -3474,7 +3474,7 @@ msgstr "Méta description à utiliser pour la page Auteur/autrice"
 
 #: admin/views/user-profile.php:24
 msgid "Title to use for Author page"
-msgstr "Titre à utiliser pour la page Auteur/autrice"
+msgstr "Titre SEO à utiliser pour la page auteur/autrice"
 
 #. translators: %1$s expands to Yoast SEO
 #: admin/views/user-profile.php:11
@@ -3628,7 +3628,7 @@ msgstr "Importez les réglages d’autres extensions de référencement et expor
 
 #: admin/pages/tools.php:24
 msgid "Import and Export"
-msgstr "Import et Export"
+msgstr "Importation et exportation"
 
 #: admin/pages/tools.php:37
 msgid "This tool allows you to quickly change titles and descriptions of your posts and pages without having to go into the editor for each page."
@@ -3902,7 +3902,7 @@ msgstr "RSS"
 
 #: inc/class-wpseo-replace-vars.php:1456
 msgid "Permalink"
-msgstr "Permalien"
+msgstr "Permaliens"
 
 #: admin/pages/metas.php:23
 msgid "Breadcrumbs"
@@ -4142,7 +4142,7 @@ msgstr "Action"
 
 #: admin/class-bulk-editor-list-table.php:996
 msgid "Page URL/Slug"
-msgstr "URL/Slug de la page"
+msgstr "Slug de la page"
 
 #: admin/class-bulk-editor-list-table.php:995
 msgid "Publication date"
@@ -4190,8 +4190,8 @@ msgstr "Filtrer"
 msgctxt "posts"
 msgid "Trash <span class=\"count\">(%s)</span>"
 msgid_plural "Trash <span class=\"count\">(%s)</span>"
-msgstr[0] "Supprimez le <span class=\"count\">(%s)</span>"
-msgstr[1] "Supprimez les <span class=\"count\">(%s)</span>"
+msgstr[0] "Corbeille <span class=\"count\">(%s)</span>"
+msgstr[1] "Corbeille <span class=\"count\">(%s)</span>"
 
 #. translators: %s expands to the number of posts in localized format.
 #: admin/class-bulk-editor-list-table.php:288
