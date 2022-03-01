@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-10 10:03:43+0000\n"
+"PO-Revision-Date: 2022-02-22 08:35:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,25 +11,73 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
 
+#: src/integrations/admin/import-integration.php:197
+msgid "Cleanup failed with the following error:"
+msgstr "Le nettoyage a échoué avec l’erreur suivante :"
+
+#: src/integrations/admin/import-integration.php:129
+msgid "Note: These settings will overwrite the default settings of Yoast SEO."
+msgstr "Remarque : Ces réglages écraseront ceux par défaut de Yoast SEO."
+
+#: src/integrations/admin/import-integration.php:125
+#: src/integrations/admin/import-integration.php:135
+msgid "Note: This metadata will only be imported if there is no existing Yoast SEO metadata yet."
+msgstr "Remarque : Cette métadonnée ne sera importée que s’il n‘existe pas encore de métadonnée correspondante dans Yoast SEO."
+
+#: src/integrations/admin/import-integration.php:124
+#: src/integrations/admin/import-integration.php:134
+msgid "Post metadata (SEO titles, descriptions, etc.)"
+msgstr "Les métadonnées des publications (titres SEO, descriptions, etc…)"
+
+#. translators: %s: expands to the name of the plugin that is selected to be
+#. imported
+#: src/integrations/admin/import-integration.php:120
+msgid "The import from %s includes:"
+msgstr "L’importation de %s inclut :"
+
+#: src/integrations/admin/import-integration.php:118
+msgid "Once you're certain that your site is working properly with the imported data from another SEO plugin, you can clean up all the original data from that plugin."
+msgstr "Lorsque vous aurez la certitude que votre site fonctionne correctement avec le données importées d’une autre extension SEO, vous pouvez nettoyer ses anciennes données."
+
+#: src/integrations/admin/import-integration.php:117
+msgid "Please select an SEO plugin below to see what data can be imported."
+msgstr "Veuillez sélectionner une extension SEO ci-dessous pour voir les données éligibles à l’importation."
+
+#: src/integrations/admin/import-integration.php:116
+msgid "Clean up"
+msgstr "Nettoyer"
+
+#: src/integrations/admin/import-integration.php:109
+msgid "After you've imported data from another SEO plugin, please make sure to clean up all the original data from that plugin. (step 5)"
+msgstr "Après l’importation de données d’une autre extension SEO, assurez-vous de nettoyer ses données d’origine. (étape 5)"
+
+#: src/integrations/admin/import-integration.php:108
+msgid "Note: "
+msgstr "Remarque : "
+
+#: src/integrations/admin/import-integration.php:107
+msgid "The cleanup can take a long time depending on your site's size."
+msgstr "Le nettoyage peut prendre un certain temps en fonction de la taille de votre site."
+
 #: src/services/health-check/default-tagline-check.php:48
 msgid "Default tagline"
 msgstr "Slogan par défaut"
 
-#: src/integrations/admin/import-integration.php:149
+#: src/integrations/admin/import-integration.php:199
 msgid "Import failed with the following error:"
 msgstr "L’importation a échoué avec l’erreur suivante :"
 
-#: src/integrations/admin/import-integration.php:109
+#: src/integrations/admin/import-integration.php:111
 msgid "No data found from other SEO plugins."
 msgstr "Aucune donnée trouvée de la part d’autres extensions SEO."
 
-#: src/integrations/admin/import-integration.php:108
+#: src/integrations/admin/import-integration.php:110
 msgid "Select SEO plugin"
 msgstr "Sélectionnez une extension SEO"
 
-#: src/integrations/admin/import-integration.php:107
+#: src/integrations/admin/import-integration.php:106
 msgid "The import can take a long time depending on your site's size."
-msgstr "L’importation peut prendre un certain temps en fonction de la taille de votre site"
+msgstr "L’importation peut prendre un certain temps en fonction de la taille de votre site."
 
 #: src/integrations/admin/installation-success-integration.php:101
 msgid "Installation Successful"
@@ -1552,7 +1600,7 @@ msgstr "Autoriser le contrôle"
 msgid "This tab allows you to selectively disable %s features for all sites in the network. By default all features are enabled, which allows site admins to choose for themselves if they want to toggle a feature on or off for their site. When you disable a feature here, site admins will not be able to use that feature at all."
 msgstr "Cet onglet vous permet de désactiver certaines fonctionnalités de %s pour tous les sites du réseau. Par défaut, toutes les fonctionnalités sont activées, ce qui permet aux administrateurs et administratrices de choisir lesquelles ils veulent activer/désactiver pour leur site. Lorsque vous désactivez une fonctionnalité ici, les administrateurs et administratrices des sites ne pourront plus l’utiliser du tout."
 
-#: admin/views/sidebar.php:29 js/dist/externals-components.js:11
+#: admin/views/sidebar.php:29 js/dist/externals-components.js:7
 msgid "Rank better with synonyms & related keyphrases"
 msgstr "Soyez plus visible avec des synonymes et des variantes de votre requête"
 
@@ -1603,9 +1651,9 @@ msgstr "Requête cible non définie."
 #: src/deprecated/admin/add-keyword-modal.php:47
 #: src/deprecated/admin/keyword-synonyms-modal.php:47
 #: src/deprecated/admin/multiple-keywords-modal.php:47
-#: js/dist/externals-components.js:19 js/dist/externals-components.js:29
+#: js/dist/externals-components.js:15 js/dist/externals-components.js:25
+#: js/dist/externals-components.js:27 js/dist/externals-components.js:29
 #: js/dist/externals-components.js:31 js/dist/externals-components.js:33
-#: js/dist/externals-components.js:35 js/dist/externals-components.js:37
 msgid "Get %s"
 msgstr "%s"
 
@@ -1636,7 +1684,7 @@ msgstr "Blocs de données structurées de %1$s "
 #: src/deprecated/admin/add-keyword-modal.php:35
 #: src/deprecated/admin/keyword-synonyms-modal.php:35
 #: src/deprecated/admin/multiple-keywords-modal.php:35
-#: js/dist/externals-components.js:21
+#: js/dist/externals-components.js:17
 msgid "Great news: you can, with %s!"
 msgstr "Bonne nouvelle : vous le pouvez avec %s !"
 
@@ -1701,7 +1749,7 @@ msgid "Not all required fields are given. Missing field %1$s"
 msgstr "Tous les champs nécessaires ne sont pas renseignés. Champ manquant %1$s"
 
 #: src/deprecated/admin/keyword-synonyms-modal.php:32
-#: js/dist/externals-components.js:33
+#: js/dist/externals-components.js:29
 msgid "Would you like to add keyphrase synonyms?"
 msgstr "Souhaitez-vous ajouter des requêtes synonymes ?"
 
@@ -1988,7 +2036,7 @@ msgid "%s data not found."
 msgstr "%s données introuvables."
 
 #: admin/class-premium-upsell-admin-block.php:58 admin/views/sidebar.php:38
-#: js/dist/externals-components.js:15 js/dist/externals-components.js:25
+#: js/dist/externals-components.js:11 js/dist/externals-components.js:21
 msgid "24/7 email support"
 msgstr "Support par e-mail 24/7"
 
@@ -2325,7 +2373,7 @@ msgid "The SEO analysis offers suggestions to improve the SEO of your text."
 msgstr "L’analyse SEO propose des suggestions pour améliorer le référencement de votre texte."
 
 #: admin/views/class-yoast-feature-toggles.php:74
-#: js/dist/externals-components.js:37
+#: js/dist/externals-components.js:33
 msgid "SEO analysis"
 msgstr "Analyse SEO"
 
@@ -2531,18 +2579,18 @@ msgstr "Score de lisibilité"
 #: src/deprecated/admin/add-keyword-modal.php:41
 #: src/deprecated/admin/keyword-synonyms-modal.php:41
 #: src/deprecated/admin/multiple-keywords-modal.php:41
-#: js/dist/externals-components.js:17 js/dist/externals-components.js:27
+#: js/dist/externals-components.js:13 js/dist/externals-components.js:23
 msgid "Other benefits of %s for you:"
 msgstr "Les autres atouts de %s :"
 
 #: admin/filters/class-cornerstone-filter.php:87
 #: admin/views/class-yoast-feature-toggles.php:90
-#: js/dist/externals-components.js:5
+#: js/dist/externals-components.js:1
 msgid "Cornerstone content"
 msgstr "Contenu Cornestone"
 
 #: admin/class-premium-upsell-admin-block.php:56
-#: js/dist/externals-components.js:13 js/dist/externals-components.js:23
+#: js/dist/externals-components.js:9 js/dist/externals-components.js:19
 msgid "Superfast internal linking suggestions"
 msgstr "Suggestions de liens internes super-rapides"
 
@@ -2555,7 +2603,7 @@ msgstr "Enregistrer les modifications"
 #: src/deprecated/admin/add-keyword-modal.php:50
 #: src/deprecated/admin/keyword-synonyms-modal.php:50
 #: src/deprecated/admin/multiple-keywords-modal.php:50
-#: js/dist/externals-components.js:19 js/dist/externals-components.js:29
+#: js/dist/externals-components.js:15 js/dist/externals-components.js:25
 msgid "1 year free support and updates included!"
 msgstr "1 an de mises à jour et de support offert !"
 
@@ -2567,7 +2615,7 @@ msgid "The plugin %2$s changes your site's output and in doing that differentiat
 msgstr "L’extension %2$s modifie l’apparence de votre site et, ce faisant, elle diffère entre les moteurs de recherche et les utilisateurs normaux, c’est un processus qui se nomme cloaking. Nous vous recommandons vivement de la désactiver."
 
 #: admin/class-premium-upsell-admin-block.php:59 admin/views/sidebar.php:39
-#: js/dist/externals-components.js:15 js/dist/externals-components.js:25
+#: js/dist/externals-components.js:11 js/dist/externals-components.js:21
 msgid "No ads!"
 msgstr "Sans publicités !"
 
@@ -2944,7 +2992,7 @@ msgid "Removes the readability analysis section from the metabox and disables al
 msgstr "Retire l’onglet de l’analyse de lisibilité du gestionnaire de métadonnées et désactive toutes les suggestions liées."
 
 #: admin/views/class-yoast-feature-toggles.php:82
-#: js/dist/externals-components.js:5
+#: js/dist/externals-components.js:1
 msgid "Readability analysis"
 msgstr "Analyse de lisibilité"
 
@@ -2954,7 +3002,7 @@ msgstr "Analyse de lisibilité"
 #: inc/class-wpseo-rank.php:140 inc/class-wpseo-rank.php:163
 #: inc/class-wpseo-rank.php:195 js/dist/block-editor.js:1
 #: js/dist/block-editor.js:63 js/dist/editor-modules.js:1
-#: js/dist/externals-components.js:1 js/dist/externals/analysis.js:356
+#: js/dist/externals-components.js:33 js/dist/externals/analysis.js:356
 #: js/dist/post-edit.js:1 js/dist/term-edit.js:1
 msgid "Needs improvement"
 msgstr "À améliorer"
@@ -3298,7 +3346,7 @@ msgstr "Erreur 404 : Page introuvable"
 #: inc/class-wpseo-rank.php:142 inc/class-wpseo-rank.php:173
 #: inc/class-wpseo-rank.php:205 js/dist/block-editor.js:1
 #: js/dist/block-editor.js:63 js/dist/editor-modules.js:1
-#: js/dist/externals-components.js:1 js/dist/externals/analysis.js:356
+#: js/dist/externals-components.js:33 js/dist/externals/analysis.js:356
 #: js/dist/post-edit.js:1 js/dist/term-edit.js:1
 msgid "Good"
 msgstr "Bon"
@@ -3623,7 +3671,7 @@ msgid "File editor"
 msgstr "Éditeur de fichiers"
 
 #: admin/pages/tools.php:25
-msgid "Import settings from other SEO plugins and export your settings for re-use on (another) blog."
+msgid "Import settings from other SEO plugins and export your settings for re-use on (another) site."
 msgstr "Importez les réglages d’autres extensions de référencement et exportez les vôtres pour les réutiliser sur un autre site."
 
 #: admin/pages/tools.php:24
@@ -3658,6 +3706,10 @@ msgstr "Ajouter les métadonnées de carte Twitter"
 #: admin/views/tabs/social/facebook.php:54
 msgid "This image is used if the post/page being shared does not contain any images."
 msgstr "Cette image est utilisée si la publication partagée ne contient aucune image."
+
+#: src/integrations/admin/import-integration.php:128
+msgid "Default settings"
+msgstr "Réglages par défaut"
 
 #: admin/views/tabs/metas/paper-content/rss-content.php:33
 #: admin/views/tool-bulk-editor.php:111
@@ -3902,7 +3954,7 @@ msgstr "RSS"
 
 #: inc/class-wpseo-replace-vars.php:1456
 msgid "Permalink"
-msgstr "Permaliens"
+msgstr "Permalien"
 
 #: admin/pages/metas.php:23
 msgid "Breadcrumbs"
@@ -3958,7 +4010,7 @@ msgid "Archives"
 msgstr "Archives"
 
 #: admin/google_search_console/views/gsc-redirect-nopremium.php:27
-#: js/dist/externals-components.js:29 js/dist/externals/componentsNew.js:1
+#: js/dist/externals-components.js:25 js/dist/externals/componentsNew.js:1
 msgid "Close"
 msgstr "Fermer"
 
@@ -3992,7 +4044,7 @@ msgstr "Facebook"
 #: admin/statistics/class-statistics-service.php:222
 #: inc/class-wpseo-rank.php:141 inc/class-wpseo-rank.php:168
 #: inc/class-wpseo-rank.php:200 js/dist/block-editor.js:1
-#: js/dist/editor-modules.js:1 js/dist/externals-components.js:1
+#: js/dist/editor-modules.js:1 js/dist/externals-components.js:33
 #: js/dist/externals/analysis.js:356 js/dist/post-edit.js:1
 #: js/dist/term-edit.js:1
 msgid "OK"

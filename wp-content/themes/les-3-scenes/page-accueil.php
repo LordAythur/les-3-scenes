@@ -7,6 +7,10 @@
  get_header();
  ?>
 
+ <style>
+     #breadcrumbs {display: none;}
+ </style>
+
  <main id="primary" class="site-main">
      <div id="page-accueil">
          <section id="entry">

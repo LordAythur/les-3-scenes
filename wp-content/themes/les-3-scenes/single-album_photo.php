@@ -7,6 +7,20 @@
  get_header();
  ?>
 
+<style>
+     #breadcrumbs {display: none;}
+ </style>
+
+<div class="col-xl-10 offset-xl-1">
+	<p id="breadcrumbs_galerie">
+		<span>
+			<span>
+                <a href="<?php bloginfo('url'); ?>/accueil/">Accueil</a> &gt;  <a href="<?php bloginfo('url'); ?>/galerie/">Galerie</a> &gt; <strong class="breadcrumb_last" aria-current="page"><?php the_title(); ?></strong>
+			</span>
+		</span>
+	</p>
+	</div>
+
  <main id="primary" class="site-main">
      <div id="single-galerie">
          <section id="photos">
