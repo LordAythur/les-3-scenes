@@ -1,7 +1,7 @@
 === les-3-scenes ===
 
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Contributors: Arthur JORIS
+Tags: Full custom theme, user friendly back office
 
 Requires at least: 4.5
 Tested up to: 5.4
@@ -14,7 +14,7 @@ A starter theme called les-3-scenes.
 
 == Description ==
 
-Description
+Thème conçu pour le site de la compagnie Les 3 Scènes.
 
 == Installation ==
 

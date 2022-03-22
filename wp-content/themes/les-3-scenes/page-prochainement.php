@@ -18,8 +18,11 @@
                          
                      </div>
 
-                     <div class="col-xl-10 offset-xl-1 calendrier d-flex justify-content-flex-start">
+                     <div class="col-xl-8 offset-xl-1 calendrier d-flex justify-content-flex-start">
                          <?php echo do_shortcode('[my_calendar]'); ?>                         
+                     </div>
+                     <div class="col-xl-3 info">
+
                      </div>
                  </div>
              </div>

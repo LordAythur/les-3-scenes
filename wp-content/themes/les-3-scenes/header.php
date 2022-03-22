@@ -30,7 +30,7 @@
 			<div class="row align-items-center container-header">
 				<div class="col-xl-8 offset-xl-2 header-logo d-flex">
 					<a href="/" class="logo">Logo</a>
-					<a class="agenda-bouton" href="/">Agenda</a>
+					<a class="agenda-bouton" href="<?php bloginfo('url'); ?>/prochainement/">Agenda</a>
 				</div>
 			</div>
 			<div class="row align-items-center container-naviguation">
@@ -52,9 +52,6 @@
 							)
 						);
 					?>
-					</div>
-					<div class="col-xl-1 justify-content-end d-flex">
-						<a href="<?php bloginfo('url'); ?>/prochainement/">PROCHAINEMENT</a>
 					</div>
 				</nav><!-- #site-navigation -->
 			</div>

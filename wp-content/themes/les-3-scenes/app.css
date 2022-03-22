@@ -24,7 +24,7 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 .site-header .container-naviguation a:hover {color: var(--noir);}
 
 /** Footer **/
-.site-footer {background-color: var(--noir);position: relative;margin-bottom:-25px;}
+.site-footer {background-color: var(--noir);position: relative;margin-bottom:-25px;margin-top: 25px;}
 .site-footer .adresse {padding-top: 40px;}
 .site-footer .adresse {flex-direction: column;}
 .site-footer .adresse h3 {text-align: center;width: auto;color: var(--bordeaux);font-size: 20px;}
@@ -98,12 +98,24 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 #page-contact #contact .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-contact #contact .titre h2 {font-family: var(--baskerville);font-weight: bold;width: 100%;}
 
-#page-contact #contact .form {background-color: var(--gris);box-shadow: -2px -2px 5px rgb(0,0,0,25%);}
+#page-contact #contact .row {justify-content: space-evenly;}
+
+#page-contact #contact .form {background-color: var(--gris);box-shadow: -2px -2px 5px rgb(0,0,0,25%);padding:10px;}
 #page-contact #contact .form label {width: 100%;flex-direction: column;}
 #page-contact #contact .form #premiere_ligne {display: flex;}
 #page-contact #contact .form #premiere_ligne label {display: flex;}
 #page-contact #contact .form #premiere_ligne label input {width: 80%;}
-#page-contact #contact .form input {border-radius: 0;border: 0;background-color: #f5f5f5;width: 100%;}
+#page-contact #contact .form input {border-radius: 0;border: 0;background-color: #f5f5f5;width: 100%;padding-left:10px;}
+#page-contact #contact .form label {margin-top: 10px;}
+#page-contact #contact .form .email input {width: 95%;}
+#page-contact #contact .form .email input,
+#page-contact #contact .form .email label {margin-left: 5%;}
+#page-contact #contact .form textarea {border-radius: 0;border: 0;resize: none;background-color: #f5f5f5;}
+#page-contact #contact .form input:focus-visible,
+#page-contact #contact .form textarea:focus-visible {outline: var(--bordeaux) 2px solid;}
+#page-contact #contact .form input[type="submit"]{color: white;width: auto;padding: 10px;border-radius: 5px;background-color: var(--bordeaux);}
+
+#page-contact #contact .map iframe {height: 100%;width: 100%;}
 
 /** Agenda **/
 
@@ -111,7 +123,11 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 #page-prochainement #agenda .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-prochainement #agenda .titre h2 {font-family: var(--baskerville);font-weight: bold;width: 100%;}
 
-#page-prochainement #agenda .mc-main.calendar {width: auto;margin: 0;}
+#page-prochainement #agenda .calendrier {margin-top: 40px;margin-bottom: 40px;}
+#page-prochainement #agenda .calendrier .mc-main.calendar {width: auto;margin: 0;}
+#page-prochainement #agenda .calendrier .mc-main .calendar-event .details {width: 40%;top: 0;}
+
+#page-prochainement #agenda .info {height: 100%;background-color: var(--bordeaux);}
 
 .my-calendar-mask {display: none;}
 
@@ -119,6 +135,12 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 
 #page-mentions #mentions .mention {margin-bottom: 50px;}
 #page-mentions #mentions .mention h1 {margin-top: 50px;}
+
+@media screen and (max-width: 426px) {
+    #page-contact #contact .titre {height: 100px;}
+    #page-contact #contact .titre .background-number {font-size: 80px;}
+}
+
 
 
 

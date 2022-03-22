@@ -312,26 +312,29 @@ function mc_modify_location( $update, $where ) {
 /**
  * Delete a single location.
  *
- * @param int $location Location ID.
+ * @param int    $location Location ID.
+ * @param string $type Return type.
  *
  * @return string
  */
-function mc_delete_location( $location ) {
+function mc_delete_location( $location, $type = 'string' ) {
 	global $wpdb;
 	$location = (int) ( ( isset( $_GET['location_id'] ) ) ? $_GET['location_id'] : $location );
 	$results  = $wpdb->query( $wpdb->prepare( 'DELETE FROM ' . my_calendar_locations_table() . ' WHERE location_id=%d', $location ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	do_action( 'mc_delete_location', $results, $location );
 	if ( $results ) {
+		$value            = true;
 		$return           = mc_show_notice( __( 'Location deleted successfully', 'my-calendar' ), false );
 		$default_location = get_option( 'mc_default_location', false );
 		if ( (int) $default_location === $location ) {
 			delete_option( 'mc_default_location' );
 		}
 	} else {
+		$value  = false;
 		$return = mc_show_error( __( 'Location could not be deleted', 'my-calendar' ), false );
 	}
 
-	return $return;
+	return ( 'string' === $type ) ? $return : $value;
 }
 
 /**
@@ -699,7 +702,8 @@ function mc_locations_fields( $has_data, $data, $context = 'location', $group_id
 	$return = '<div class="mc-locations" id="location-fields">';
 	if ( current_user_can( 'mc_edit_locations' ) && 'event' === $context ) {
 		$checked = ' checked="checked"';
-		if ( $has_data && ! empty( $data->event_location ) ) {
+		// Default unchecked if event has a location or is being copied.
+		if ( ( $has_data && ! empty( $data->event_location ) ) || isset( $_GET['mode'] ) && 'copy' === $_GET['mode'] ) {
 			$checked = '';
 		}
 		$return .= '<p class="checkboxes"><input type="checkbox" value="on" name="mc_copy_location" id="mc_copy_location"' . $checked . ' /> <label for="mc_copy_location">' . __( 'Copy new location into the locations table', 'my-calendar' ) . '</label></p>';
@@ -1193,11 +1197,12 @@ function mc_core_search_locations( $query = '' ) {
 	$current = empty( $_GET['paged'] ) ? 1 : intval( $_GET['paged'] );
 	$db_type = mc_get_db_type();
 	$query   = esc_sql( $query );
+	$length  = strlen( $query );
 
 	if ( '' !== $query ) {
 		// Fulltext is supported in InnoDB since MySQL 5.6; minimum required by WP is 5.0 as of WP 5.5.
 		// 37% of installs still below 5.6 as of 11/30/2020.
-		if ( 'MyISAM' === $db_type ) {
+		if ( 'MyISAM' === $db_type && $length > 3 ) {
 			$search = ' WHERE MATCH(' . apply_filters( 'mc_search_fields', 'location_label' ) . ") AGAINST ( '$query' IN BOOLEAN MODE ) ";
 		} else {
 			$search = " WHERE location_label LIKE '%$query%' ";
