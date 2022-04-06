@@ -186,7 +186,7 @@ function scenes_scripts() {
     wp_enqueue_style( 'app-css', get_template_directory_uri() . '/app.css' );
     wp_style_add_data( 'scenes-style', 'rtl', 'replace' );
 
-    wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js');
+    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.6.0.min.js');
     wp_enqueue_script( 'app-js', get_template_directory_uri() . '/app.js');
 	wp_enqueue_script( 'aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
 

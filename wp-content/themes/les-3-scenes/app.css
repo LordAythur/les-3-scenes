@@ -119,6 +119,8 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 
 /** Agenda **/
 
+#page-prochainement #agenda a {text-decoration: none;}
+#page-prochainement #agenda .single-event .time-block {background: none;}
 #page-prochainement #agenda .titre {position: relative;display: flex;align-items: center;height: 180px;margin-top: 20px;flex-wrap: wrap;}
 #page-prochainement #agenda .titre .background-number {line-height:100%;position: absolute;top: 0;left: 0;font-size: 150px;font-weight: bold;opacity: 10%;}
 #page-prochainement #agenda .titre h2 {font-family: var(--baskerville);font-weight: bold;width: 100%;}
@@ -137,8 +139,27 @@ a.agenda-bouton{text-decoration:none;text-transform:uppercase;color:white;margin
 #page-mentions #mentions .mention h1 {margin-top: 50px;}
 
 @media screen and (max-width: 426px) {
+    body {overflow-x: hidden;}
+
+    #scroller {right: 100px;}
+    #navbarNavDropdown {width: 100vw;height: 100vh;background-color: var(--bordeaux);}
+
+    .site-footer .rs {right: 365px;}
+    .navbar {padding: 0;}
+    .navbar-light .navbar-toggler {border: 0;}
+    .navbar svg path {fill: white;}
+    
+    #page-accueil #compagnie .content-compagnie .texte {position: relative;}
+    #page-accueil #compagnie .content-compagnie .image {position: relative;margin-top: 10px;}
+    #page-accueil #histoire .content-compagnie .image {margin-top: 10px!important; margin-bottom: 50px;position: relative;}
+    #page-accueil #histoire .content-compagnie .texte {position: relative;}
+
+
     #page-contact #contact .titre {height: 100px;}
     #page-contact #contact .titre .background-number {font-size: 80px;}
+
+    .site-footer .menu-footer ul {flex-direction: column;align-items: center;}
+    .site-footer .menu-footer ul li {margin: 10px 10px;}
 }
 
 
