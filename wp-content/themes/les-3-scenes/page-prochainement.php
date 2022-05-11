@@ -12,7 +12,7 @@
          <section id="agenda">
             <div class="container-fluid">
                  <div class="row">
-                     <div class="col-xl-10 offset-xl-1 titre">
+                     <div class="col-xl-10 offset-xl-1 titre" data-aos='fade-right' data-aos-delay='100'>
                          <h2>Prochainement</h2>
                          <span class="background-number">AGENDA</span>
                          

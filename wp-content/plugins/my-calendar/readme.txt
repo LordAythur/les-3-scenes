@@ -6,7 +6,7 @@ Requires at least: 4.4
 Tested up to: 5.9
 Requires PHP: 7.0
 Text domain: my-calendar
-Stable tag: 3.3.9
+Stable tag: 3.3.12
 License: GPLv2 or later
 
 Accessible WordPress event calendar plugin. Show events from multiple calendars on pages, in posts, or in widgets.
@@ -83,6 +83,33 @@ Translating my plugins is always appreciated. Visit <a href="https://translate.w
 4. Visit My Calendar -> Help for assistance with shortcode options or widget configuration.
 
 == Changelog ==
+
+= 3.3.12 =
+
+* Bug fix: Find title and find event should use nearest event, not first event.
+* Bug fix: Title replacement used event ID improperly if mc_id not passed.
+* Bug fix: Seed GUID with home_url.
+* Bug fix: Don't throw warnings if host/author ID no longer exists.
+* Bug fix: Handle recurring event codes if passed from event importer.
+
+= 3.3.11 =
+
+* Bug fix: Modifying a category didn't refresh the icon SVG for that category.
+* Bug fix: Contextual help should be viewable with 'view help' capability.
+* Bug fix: Allow img in event title templates.
+* Bug fix: 'all' category limit could be cast to an integer, breaking links.
+* Change: text changes to location select label for clarification of purpose.
+* Change: allow mc_bulk_actions() to take a second argument with events to modify.
+
+= 3.3.10 =
+
+* Bug fix: aria-current not rendered on event manager filters.
+* Bug fix: published filter not marked as current by default.
+* Bug fix: Cache allowed sites for CORS headers on multisite networks.
+* Bug fix: fread error if no stylesheet defined.
+* Bug fix: Extra closing div in single-day view.
+* Bug fix: Better support for local user time.
+* Change: Wrapper function for My Calendar time format: `mc_time_format()`
 
 = 3.3.9 =
 
@@ -468,5 +495,3 @@ The search feature in My Calendar is pretty basic; but [buying My Calendar Pro](
 8. Template editing
 
 == Upgrade Notice ==
-
-* 3.3.0 Major release: 

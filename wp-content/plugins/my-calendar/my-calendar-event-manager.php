@@ -17,12 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Handle a bulk action.
  *
  * @param string $action type of action.
+ * @param array  $events Optional. Array of event IDs to act on.
  *
  * @return array bulk action details.
  */
-function mc_bulk_action( $action ) {
+function mc_bulk_action( $action, $events = array() ) {
 	global $wpdb;
-	$events  = $_POST['mass_edit'];
+	$events  = ( empty( $events ) ) ? $_POST['mass_edit'] : $events;
 	$i       = 0;
 	$total   = 0;
 	$ids     = array();
@@ -568,10 +569,10 @@ function mc_list_events() {
 		}
 		$status_links = mc_status_links( $allow_filters );
 		$search_text  = ( isset( $_POST['mcs'] ) ) ? $_POST['mcs'] : '';
-		echo wp_kses_post( $filtered );
+		echo wp_kses( $filtered, mc_kses_elements() );
 		?>
 		<div class="mc-admin-header">
-			<?php echo wp_kses_post( $status_links ); ?>
+			<?php echo wp_kses( $status_links, mc_kses_elements() ); ?>
 			<div class='mc-search'>
 				<form action="<?php echo esc_url( add_query_arg( $_GET, admin_url( 'admin.php' ) ) ); ?>" method="post">
 					<div><input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce( 'my-calendar-nonce' ); ?>"/>
@@ -770,7 +771,7 @@ function mc_list_events() {
 							<td>
 							<?php
 							if ( '23:59:59' !== $event->event_endtime ) {
-								$event_time = date_i18n( get_option( 'mc_time_format' ), mc_strtotime( $event->event_time ) );
+								$event_time = date_i18n( mc_time_format(), mc_strtotime( $event->event_time ) );
 							} else {
 								$event_time = mc_notime_label( $event );
 							}
@@ -814,8 +815,7 @@ function mc_list_events() {
 		<div class='mc-admin-footer'>
 			<?php
 			$status_links = mc_status_links( $allow_filters );
-			echo wp_kses_post( $status_links );
-			echo wp_kses_post( $filtered );
+			echo wp_kses( $status_links . $filtered, mc_kses_elements() );
 			?>
 			<div class='mc-search'>
 			<form action="<?php echo esc_url( add_query_arg( $_GET, admin_url( 'admin.php' ) ) ); ?>" method="post">

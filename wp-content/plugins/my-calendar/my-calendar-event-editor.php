@@ -1552,19 +1552,20 @@ function mc_event_location_dropdown_block( $data ) {
 	if ( $count > apply_filters( 'mc_convert_locations_select_to_autocomplete', 90 ) ) {
 		$autocomplete = true;
 	}
-	if ( 0 !== $count ) {
-		$fields .= '<label for="l_preset">' . __( 'Choose location:', 'my-calendar' ) . '</label>';
-		if ( is_object( $data ) ) {
-			$selected = '';
-			if ( property_exists( $data, 'event_location' ) ) {
-				$event_location = $data->event_location;
-			}
+	if ( is_object( $data ) ) {
+		$selected = '';
+		if ( property_exists( $data, 'event_location' ) ) {
+			$event_location = $data->event_location;
 		}
+	}
+	if ( 0 !== $count ) {
+		$fields .= ( $event_location ) ? '<label for="l_preset">' . __( 'Change location:', 'my-calendar' ) . '</label>' : '<label for="l_preset">' . __( 'Choose location:', 'my-calendar' ) . '</label>';
 		if ( ! $autocomplete ) {
 			$locs    = mc_get_locations( 'select-locations' );
+			$text    = ( $event_location ) ? __( 'No change', 'my-calendar' ) : __( 'No location', 'my-calendar' );
 			$fields .= '
 			 <select name="location_preset" id="l_preset" aria-describedby="mc-current-location">
-				<option value="none">' . __( 'No location', 'my-calendar' ) . '</option>';
+				<option value="none">' . $text . '</option>';
 			foreach ( $locs as $loc ) {
 				if ( is_object( $loc ) ) {
 					$base_loc = strip_tags( stripslashes( $loc->location_label ), mc_strip_tags() );
@@ -1744,11 +1745,14 @@ function mc_check_data( $action, $post, $i, $ignore_required = false ) {
 		$desc   = ! empty( $post['content'] ) ? trim( $post['content'] ) : '';
 		$short  = ! empty( $post['event_short'] ) ? trim( $post['event_short'] ) : '';
 		$recurs = ( isset( $post['prev_event_recur'] ) ) ? $post['prev_event_recur'] : '';
-		$recur  = ! empty( $post['event_recur'] ) ? trim( $post['event_recur'] ) : $recur;
+		$recur  = ! empty( $post['event_recur'] ) ? trim( $post['event_recur'] ) : $recurs;
 		if ( ! isset( $post['event_recur'] ) && isset( $post['event_repeats'] ) ) {
 			unset( $post['event_repeats'] );
 		}
 		$every = ! empty( $post['event_every'] ) ? (int) $post['event_every'] : 1;
+		if ( strlen( $recur > 1 ) ) {
+			$recur = substr( $recur, 0, 1 );
+		}
 		// if this is an all weekdays event, and it's scheduled to start on a weekend, the math gets nasty.
 		// ...AND there's no reason to allow it, since weekday events will NEVER happen on the weekend.
 		$begin = trim( $post['event_begin'][ $i ] );
@@ -2268,7 +2272,7 @@ function mc_standard_datetime_input( $form, $has_data, $data, $instance, $contex
 	$aria         = '';
 	if ( '00:00' !== $max || '00:00' !== $min ) {
 		// Translators: starting time, ending time.
-		$range  = '<p id="mc_time_range_allowed">' . sprintf( __( 'Times must be between %1$s and %2$s', 'my-calendar' ), mc_date( get_option( 'mc_time_format' ), strtotime( $min ) ), mc_date( get_option( 'mc_time_format' ), strtotime( $max ) ) ) . '</p>';
+		$range  = '<p id="mc_time_range_allowed">' . sprintf( __( 'Times must be between %1$s and %2$s', 'my-calendar' ), mc_date( mc_time_format(), strtotime( $min ) ), mc_date( mc_time_format(), strtotime( $max ) ) ) . '</p>';
 		$aria   = ' aria-describedby="mc_time_range_allowed"';
 		$append = '<span class="validity"><span class="dashicons dashicons-no" aria-hidden="true"></span>' . __( 'Invalid time', 'my-calendar' ) . '</span>';
 	}
@@ -2587,7 +2591,7 @@ function mc_grouped_events( $id, $template = '' ) {
 			$event   = $first->occur_event_id;
 			$current = '<a href="' . admin_url( 'admin.php?page=my-calendar' ) . '&amp;mode=edit&amp;event_id=' . $event . '">';
 			$close   = '</a>';
-			$begin   = date_i18n( mc_date_format(), strtotime( $first->occur_begin ) ) . ', ' . mc_date( get_option( 'mc_time_format' ), strtotime( $first->occur_begin ), false );
+			$begin   = date_i18n( mc_date_format(), strtotime( $first->occur_begin ) ) . ', ' . mc_date( mc_time_format(), strtotime( $first->occur_begin ), false );
 			$array   = array(
 				'current' => $current,
 				'begin'   => $begin,

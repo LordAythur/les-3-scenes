@@ -14,7 +14,6 @@
     margin: 20px 0;
 }
 
-//Fixes potential theme css conflict.
 .acf-map img {
    max-width: inherit !important;
 }
@@ -166,14 +165,14 @@ $(document).ready(function(){
          <section id="contact">
             <div class="container-fluid">
                  <div class="row">
-                    <div class="col-xl-10 offset-xl-1 titre">
+                    <div class="col-xl-10 offset-xl-1 titre" data-aos='fade-right' data-aos-delay='100'>
                         <h2>Contactez-nous</h2>
                         <span class="background-number">CONTACT</span>
                     </div>
-                    <div class="col-xl-5 form">
+                    <div class="col-xl-5 form" data-aos="fade-right" data-aos-delay="">
                         <?php echo do_shortcode('[contact-form-7 id="5" title="Formulaire de contact 1"]'); ?>
                     </div>
-                    <div class="col-xl-5 map">
+                    <div class="col-xl-5 map" data-aos="fade-left" data-aos-delay="300">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.480779607818!2d4.0649957155111!3d48.29360407923614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee9856b4744303%3A0x8df54c8138185aef!2s5%20Rue%20L%C3%A9on%20Couturat%2C%2010000%20Troyes!5e0!3m2!1sfr!2sfr!4v1647961152785!5m2!1sfr!2sfr" style="border:0;" loading="lazy"></iframe>
                     </div>
                 </div>

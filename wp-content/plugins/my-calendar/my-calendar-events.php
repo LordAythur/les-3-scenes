@@ -50,7 +50,7 @@ function mc_event_object( $object ) {
  * @return string GUID
  */
 function mc_create_guid( $event ) {
-	$guid = md5( $event->event_post . $event->event_id . $event->event_title );
+	$guid = md5( home_url() . $event->event_post . $event->event_id . $event->event_title );
 	update_post_meta( $event->event_post, '_mc_guid', $guid );
 
 	return $guid;
@@ -968,9 +968,9 @@ function mc_admin_instances( $id, $occur = false ) {
 			if ( ( ( $end + 1 ) - $start ) === DAY_IN_SECONDS || ( $end - $start ) === DAY_IN_SECONDS ) {
 				$time = '';
 			} elseif ( ( $end - $start ) <= HOUR_IN_SECONDS ) {
-				$time = mc_date( get_option( 'mc_time_format' ), $start );
+				$time = mc_date( mc_time_format(), $start );
 			} else {
-				$time = mc_date( get_option( 'mc_time_format' ), $start ) . '-' . mc_date( get_option( 'mc_time_format' ), $end );
+				$time = mc_date( mc_time_format(), $start ) . '-' . mc_date( mc_time_format(), $end );
 			}
 			$date  = date_i18n( mc_date_format(), mc_date( '', $start ) );
 			$date  = "<span id='occur_date_$result->occur_id'>" . $date . '<br />' . $time . '</span>';
@@ -1199,7 +1199,7 @@ function mc_status_links( $allow_filters ) {
 	// Translators: Number of total events.
 	$all_text = sprintf( __( 'All (%d)', 'my-calendar' ), $all );
 
-	$pub_attributes = ( isset( $_GET['limit'] ) && 'published' === $_GET['limit'] ) ? ' aria-current="true"' : '';
+	$pub_attributes = ( isset( $_GET['limit'] ) && 'published' === $_GET['limit'] || ! isset( $_GET['limit'] ) ) ? ' aria-current="true"' : '';
 	// Translators: Number of total events.
 	$pub_text = sprintf( __( 'Published (%d)', 'my-calendar' ), $counts['published'] );
 

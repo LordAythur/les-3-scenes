@@ -1523,21 +1523,22 @@ function mc_scripts() {
 }
 
 
-add_filter( 'mc_time_format', 'mc_time_format', 10, 1 );
 /**
- * Default time format is 'h:i A' (standard US time format).
- * Pass a string using pickadate.time rules: http://amsul.ca/pickadate.js/time/#formatting-rules.
+ * Get the My Calendar time format.
  *
- * @param string $format Default time format string.
- *
- * @return string new format.
+ * @return string format.
  */
-function mc_time_format( $format ) {
-	if ( 'G:i' === get_option( 'mc_time_format' ) || 'H:i' === get_option( 'mc_time_format' ) || 'G:i' === get_option( 'time_format' ) || 'H:i' === get_option( 'time_format' ) ) {
-		return 'H:i'; // European 24-hour format.
+function mc_time_format() {
+	$mc_time_format = get_option( 'mc_time_format', '' );
+	$time_format    = get_option( 'time_format', '' );
+	if ( '' === $mc_time_format ) {
+		$mc_time_format = $time_format;
+	}
+	if ( '' === $mc_time_format ) {
+		$mc_time_format = 'h:i a';
 	}
 
-	return $format;
+	return $mc_time_format;
 }
 
 /**
@@ -1879,21 +1880,26 @@ function mc_next_post_link( $output, $format ) {
 function mc_the_title( $title, $post_id = null ) {
 	if ( is_singular( 'mc-events' ) && in_the_loop() ) {
 		if ( $post_id ) {
-			$event_id = ( isset( $_GET['mc_id'] ) && is_numeric( $_GET['mc_id'] ) ) ? $_GET['mc_id'] : get_post_meta( $post_id, '_mc_event_id', true );
+			$event_id = ( isset( $_GET['mc_id'] ) && is_numeric( $_GET['mc_id'] ) ) ? $_GET['mc_id'] : false;
+			if ( ! $event_id ) {
+				$parent_id = get_post_meta( $post_id, '_mc_event_id', true );
+				$event     = mc_get_nearest_event( $event_id );
+			}
 			if ( is_numeric( $event_id ) ) {
 				$event = mc_get_event( $event_id );
 				if ( ! is_object( $event ) ) {
-					$event = mc_get_first_event( $event_id );
-				} else {
-					$event_title = stripslashes( $event->event_title );
-					if ( $event_title !== $title ) {
-						$title = $event_title;
-					}
+					$event = mc_get_nearest_event( $event_id );
 				}
-				if ( is_object( $event ) && property_exists( $event, 'category_icon' ) ) {
-					$icon = mc_category_icon( $event );
-				} else {
-					$icon = '';
+			}
+			if ( is_object( $event ) && property_exists( $event, 'category_icon' ) ) {
+				$icon = mc_category_icon( $event );
+			} else {
+				$icon = '';
+			}
+			if ( is_object( $event ) ) {
+				$event_title = stripslashes( $event->event_title );
+				if ( $event_title !== $title ) {
+					$title = $event_title;
 				}
 				$template = mc_get_template( 'title_solo' );
 				if ( '' === $template || '{title}' === $template ) {
@@ -1902,6 +1908,9 @@ function mc_the_title( $title, $post_id = null ) {
 					$data  = mc_create_tags( $event, $event_id );
 					$title = mc_draw_template( $data, $template );
 				}
+			} else {
+				// If both queries fail to get title, return original.
+				return $title;
 			}
 		}
 	}
@@ -2166,13 +2175,20 @@ function mc_update_notice() {
  * Allow CORS from subsites in multisite networks in subdomain setups.
  */
 function mc_setup_cors_access() {
-	$origin  = str_replace( array( 'http://', 'https://' ), '', get_http_origin() );
-	$sites   = ( function_exists( 'get_sites' ) ) ? get_sites() : array();
-	$allowed = apply_filters( 'mc_setup_allowed_sites', array(), $origin );
-	if ( ! empty( $sites ) ) {
-		foreach ( $sites as $site ) {
-			$allowed[] = str_replace( array( 'http://', 'https://' ), '', get_home_url( $site->blog_id ) );
+	$cache  = get_transient( 'mc_allowed_origins' );
+	$origin = str_replace( array( 'http://', 'https://' ), '', get_http_origin() );
+
+	if ( $cache ) {
+		$allowed = $cache;
+	} else {
+		$sites   = ( function_exists( 'get_sites' ) ) ? get_sites() : array();
+		$allowed = apply_filters( 'mc_setup_allowed_sites', array(), $origin );
+		if ( ! empty( $sites ) ) {
+			foreach ( $sites as $site ) {
+				$allowed[] = str_replace( array( 'http://', 'https://' ), '', get_home_url( $site->blog_id ) );
+			}
 		}
+		set_transient( 'mc_allowed_origins', $allowed, MONTH_IN_SECONDS );
 	}
 	if ( $origin && is_array( $allowed ) && in_array( $origin, $allowed, true ) ) {
 		header( 'Access-Control-Allow-Origin: ' . esc_url_raw( $origin ) );

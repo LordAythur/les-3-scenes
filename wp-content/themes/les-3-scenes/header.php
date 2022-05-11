@@ -29,7 +29,7 @@
 		<div class="container-fluid">
 			<div class="row align-items-center container-header">
 				<div class="col-xl-8 offset-xl-2 header-logo d-flex">
-					<a href="/" class="logo">Logo</a>
+					<a href="/" class="logo"><image src="http://localhost/les-3-scenes/wp-content/uploads/2022/04/3scenes.png"></image></a>
 					<a class="agenda-bouton" href="<?php bloginfo('url'); ?>/prochainement/">Agenda</a>
 				</div>
 			</div>
@@ -52,6 +52,7 @@
 							)
 						);
 					?>
+					<a class="agenda-bouton-ref" href="<?php bloginfo('url'); ?>/prochainement/">Agenda</a>
 					</div>
 				</nav><!-- #site-navigation -->
 			</div>
@@ -65,5 +66,17 @@
 	}
 	?>
 	</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+ <script>
+    $( document ).ready(function() {
+        $('.navbar-toggler').click(function() {
+            console.log('test')
+            $('#navbarNavDropdown').toggle("slow", function() {
+                $('#navbarNavDropdown')
+            });
+        })
+    })
+ </script>
 
 	

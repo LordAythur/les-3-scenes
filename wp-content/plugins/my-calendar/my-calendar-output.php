@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function mc_time_html( $e, $type ) {
 	$date_format = mc_date_format();
-	$time_format = get_option( 'mc_time_format' );
+	$time_format = mc_time_format();
 	$start       = mc_date( 'Y-m-d', strtotime( $e->occur_begin ), false );
 	$end         = mc_date( 'Y-m-d', strtotime( $e->occur_end ), false );
 	$has_time    = ( '00:00:00' !== $e->event_time && '' !== $e->event_time ) ? true : false;
@@ -285,10 +285,12 @@ function my_calendar_draw_event( $event, $type, $process_date, $time, $template 
 				if ( 0 !== (int) $event->event_author && is_numeric( $event->event_author ) ) {
 					$avatar = ( $avatars ) ? get_avatar( $event->event_author ) : '';
 					$a      = get_userdata( $event->event_author );
-					$text   = ( '' !== get_option( 'mc_posted_by', '' ) ) ? get_option( 'mc_posted_by' ) : __( 'Posted by', 'my-calendar' );
-					$author = $avatar . '<p class="event-author"><span class="posted">' . $text . '</span> <span class="author-name">' . $a->display_name . "</span></p>\n";
-					if ( $avatars ) {
-						$author = '	<div class="mc-author-card">' . $author . '</div>';
+					if ( $a ) {
+						$text   = ( '' !== get_option( 'mc_posted_by', '' ) ) ? get_option( 'mc_posted_by' ) : __( 'Posted by', 'my-calendar' );
+						$author = $avatar . '<p class="event-author"><span class="posted">' . $text . '</span> <span class="author-name">' . $a->display_name . "</span></p>\n";
+						if ( $avatars ) {
+							$author = '	<div class="mc-author-card">' . $author . '</div>';
+						}
 					}
 				}
 			}
@@ -296,10 +298,12 @@ function my_calendar_draw_event( $event, $type, $process_date, $time, $template 
 				if ( 0 !== (int) $event->event_host && is_numeric( $event->event_host ) ) {
 					$havatar = ( $avatars ) ? get_avatar( $event->event_host ) : '';
 					$h       = get_userdata( $event->event_host );
-					$text    = ( '' !== get_option( 'mc_hosted_by', '' ) ) ? get_option( 'mc_hosted_by' ) : __( 'Hosted by', 'my-calendar' );
-					$host    = $havatar . '<p class="event-host"><span class="hosted">' . $text . '</span> <span class="host-name">' . $h->display_name . "</span></p>\n";
-					if ( $avatars ) {
-						$host = '	<div class="mc-host-card">' . $host . '</div>';
+					if ( $h ) {
+						$text = ( '' !== get_option( 'mc_hosted_by', '' ) ) ? get_option( 'mc_hosted_by' ) : __( 'Hosted by', 'my-calendar' );
+						$host = $havatar . '<p class="event-host"><span class="hosted">' . $text . '</span> <span class="host-name">' . $h->display_name . "</span></p>\n";
+						if ( $avatars ) {
+							$host = '	<div class="mc-host-card">' . $host . '</div>';
+						}
 					}
 				}
 			}
@@ -1322,7 +1326,7 @@ function my_calendar( $args ) {
 				<div id="mc-day-' . $id . '" class="mc-day ' . $dateclass . ' ' . $events_class . '">
 					' . "$mc_events
 				</div>
-			</div>";
+			</div><!-- .mc-content -->";
 		} else {
 			// If showing multiple months, figure out how far we're going.
 			$months       = ( 'week' === $params['time'] ) ? 1 : $show_months;
@@ -1479,7 +1483,9 @@ function my_calendar( $args ) {
 			$end   = ( 'table' === $table ) ? "\n</tbody>\n</table>" : "</div></$table>";
 			$body .= ( 'list' === $params['format'] ) ? "\n</ul>" : $end;
 		}
-		$body .= '</div>' . $bottom;
+		// For clarity, day closer is appended above.
+		$body .= ( 'day' === $params['time'] ) ? '' : '</div><!-- .mc-content -->';
+		$body .= $bottom;
 	}
 	// The actual printing is done by the shortcode function.
 	$body .= apply_filters( 'mc_after_calendar', '', $args );

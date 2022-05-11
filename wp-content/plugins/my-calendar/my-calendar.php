@@ -17,7 +17,7 @@
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/license/gpl-2.0.txt
  * Domain Path: lang
- * Version:     3.3.9
+ * Version:     3.3.12
  */
 
 /*
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $mc_version, $wpdb;
-$mc_version = '3.3.9';
+$mc_version = '3.3.12';
 
 define( 'MC_DEBUG', false );
 
@@ -445,7 +445,7 @@ function my_calendar_menu() {
 		add_submenu_page( 'my-calendar', __( 'My Calendar Shortcode Generator', 'my-calendar' ), __( 'Shortcodes', 'my-calendar' ), 'mc_view_help', 'my-calendar-shortcodes', 'my_calendar_shortcodes' );
 		add_submenu_page( 'my-calendar', __( 'My Calendar Help', 'my-calendar' ), __( 'Help', 'my-calendar' ), 'mc_view_help', 'my-calendar-help', 'my_calendar_help' );
 		// Null submenu parent prevents this from appearing in the admin menu.
-		add_submenu_page( null, __( 'My Calendar Contextual Help', 'my-calendar' ), __( 'My Calendar Contextual Help', 'my-calendar' ), 'manage_options', 'mc-contextual-help', 'mc_print_contextual_help' );
+		add_submenu_page( null, __( 'My Calendar Contextual Help', 'my-calendar' ), __( 'My Calendar Contextual Help', 'my-calendar' ), 'mc_view_help', 'mc-contextual-help', 'mc_print_contextual_help' );
 	}
 	if ( function_exists( 'mcs_submissions' ) ) {
 		$capability = 'manage_options';

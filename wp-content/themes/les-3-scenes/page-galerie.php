@@ -12,7 +12,7 @@
          <section id="albums">
             <div class="container-fluid">
                  <div class="row">
-                     <div class="col-xl-10 offset-xl-1 titre">
+                     <div class="col-xl-10 offset-xl-1 titre" data-aos='fade-right' data-aos-delay='100'>
                          <h2>Nos albums</h2>
                          <span class="background-number">GALERIE</span>
                          
@@ -40,8 +40,8 @@
                                 $annee = get_field('annee');
                             } else if($annee !== get_field('annee') ) {
                                 echo "</div>";
-                                echo "<div class='col-xl-10 offset-xl-1 d-flex justify-content-center'><h3 class='annee-album'>".get_field('annee')."</h3></div>";
-                                echo "<div class='col-xl-10 offset-xl-1 d-flex justify-content-center align-items-center albums albums".get_field('annee')."'>";
+                                echo "<div class='col-xl-10 offset-xl-1 d-flex justify-content-center'><h3 class='annee-album' data-aos='fade-up' data-aos-delay='100'>".get_field('annee')."</h3></div>";
+                                echo "<div class='col-xl-10 offset-xl-1 d-flex justify-content-center align-items-center albums albums".get_field('annee')."' data-aos='fade-up' data-aos-delay='100'>";
                                 echo "<a href='".get_post_permalink()."'><div class='album album".$count."' style='background-image: url(".get_the_post_thumbnail_url().")'>".get_the_title()."</div></a>";
                                 $count = $count + 1;
                                 $annee = get_field('annee');
